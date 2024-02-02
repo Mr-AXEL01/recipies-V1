@@ -15,4 +15,12 @@ class RecipeController extends Controller
         $recipes = Recipe::all();
         return view('home',compact(recipes));
     }
+
+    /**
+     * show the form creating a new recipe
+     */
+    public function create()
+    {
+        return view('add_recipe');
+    }
 }
