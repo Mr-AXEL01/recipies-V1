@@ -72,7 +72,21 @@ class RecipeController extends Controller
  * Remove the specified recipe from storage.
  */
     public function destroy(Recipe $recipe){$recipe->delete();
-        return redirect('/');}
+        return redirect('/');
+    }
+
+
+    /**
+     * functionality of seraching
+     */
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $results = Recipe::where('name', 'like', "%$search%")->get();
+
+        return view('welcome', ['results' => $results]);
+    }
 
 
 }
