@@ -34,7 +34,7 @@ class RecipeController extends Controller
             'ingredients' => "required",
             'recipe' => "required",
         ]);
-        $imageName = time().'.'.$request->file('picture')->extenstion();
+        $imageName = time() . '.' . $request->file('picture')->extension();
         $request->picture->move(public_path("storage"), $imageName);
         $incomingFields["picture"] = $imageName;
 

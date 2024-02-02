@@ -14,31 +14,30 @@
     <!-- Author: FormBold Team -->
     <!-- Learn More: https://formbold.com -->
     <div class="mx-auto w-full max-w-[550px] bg-white">
-        <form class="py-6 px-9" action="{{ route('recettes.update', ['recette' => $recette]) }}" method="post" enctype="multipart/form-data">
+        <form class="py-6 px-9" action="{{ route('recipes.update', ['recipe' => $recipe]) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method("put")
             <div class="mb-5">
-                <label for="titre" class="mb-3 block text-base font-medium text-[#07074D]">
+                <label for="title" class="mb-3 block text-base font-medium text-[#07074D]">
                     enter the title
                 </label>
-                <input type="text" name="titre" value="{{ $recette->titre }}" id="titre" placeholder="titre" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                <input type="text" name="title" value="{{ $recipe->title }}" id="title" placeholder="title" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
             </div>
-
 
             <div class="mb-5">
-                <label for="recette" class="mb-3 block text-base font-medium text-[#07074D]">
-                    enter the recette
+                <label for="ingredients" class="mb-3 block text-base font-medium text-[#07074D]">
+                    enter the ingredients
                 </label>
-                <input type="text" name="recette" value="{{ $recette->recette }}" id="recette" placeholder="titre" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                <input type="text" name="ingredients" value="{{ $recipe->ingredients }}" id="ingredients" placeholder="ingredients" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
             </div>
-
 
             <div class="mb-5">
-                <label for="ingredient" class="mb-3 block text-base font-medium text-[#07074D]">
-                    enter the ingredient
+                <label for="recipe" class="mb-3 block text-base font-medium text-[#07074D]">
+                    enter the recipe
                 </label>
-                <input type="text" name="ingredient" value="{{ $recette->ingredient }}" id="ingredient" placeholder="ingredient" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                <input type="text" name="recipe" value="{{ $recipe->recipe }}" id="recipe" placeholder="recipe" class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
             </div>
+
 
             <div class="mb-6 pt-4">
                 <label class="mb-5 block text-xl font-semibold text-[#07074D]">
@@ -46,7 +45,7 @@
                 </label>
 
                 <div class="mb-8">
-                    <input type="file" name="image" id="file" class="sr-only" />
+                    <input type="file" name="picture" id="file" class="sr-only" />
                     <label for="file" class="relative flex min-h-[200px] items-center justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center">
                         <div>
                 <span class="mb-2 block text-xl font-semibold text-[#07074D]">
