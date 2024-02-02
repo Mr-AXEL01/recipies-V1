@@ -23,8 +23,8 @@
                 <div class="flex flex-wrap items-center justify-between py-3 gap-6 md:py-4 md:gap-0">
                     <div class="w-full px-6 flex justify-between lg:w-max md:px-0">
                         <a href="https://tailus.io/blocks/hero-section" aria-label="logo" class="flex space-x-2 items-center">
-                            <img src="https://tailus.io/sources/blocks/food-delivery/preview/images/icon.png" class="w-12" alt="tailus logo" width="144" height="133">
-                            <span class="text-2xl font-bold text-yellow-900">Tailus <span class="text-yellow-700">Feedus</span></span>
+{{--                            <img src="https://tailus.io/sources/blocks/food-delivery/preview/images/icon.png" class="w-12" alt="tailus logo" width="144" height="133">--}}
+                            <span class="text-2xl font-bold text-gray-900">Your <span class="text-gray-400">Recipies</span></span>
                         </a>
 
                         <button aria-label="humburger" id="hamburger" class="relative w-10 h-10 -mr-2 lg:hidden">
@@ -50,7 +50,7 @@
                                     Sign up
                                 </span>
                             </button>
-                            <button type="button" title="Start buying" class="w-full py-3 px-6 text-center rounded-full transition bg-yellow-300 hover:bg-yellow-100 active:bg-yellow-400 focus:bg-yellow-300 sm:w-max">
+                            <button type="button" title="Start buying" class="w-full py-3 px-6 text-center text-white rounded-full transition bg-gray-200 hover:bg-gray-100 active:bg-yellow-700 focus:bg-gray-300 sm:w-max">
                                 <span class="block text-yellow-900 font-semibold text-sm">
                                     Login
                                 </span>
@@ -64,7 +64,7 @@
             <div class="container m-auto px-6 pt-32 md:px-12 lg:pt-[4.8rem] lg:px-7">
                 <div class="flex items-center flex-wrap px-2 md:px-0">
                     <div class="relative lg:w-6/12 lg:py-24 xl:py-32">
-                        <h1 class="font-bold text-4xl text-yellow-900 md:text-5xl lg:w-10/12">Your favorite dishes, right at your door</h1>
+                        <h1 class="font-bold text-4xl text-yellow-900 md:text-5xl lg:w-10/12">All Your favorite dishes, right at your door , just By a recipe </h1>
                         <form action="" class="w-full mt-12">
                             <div class="relative flex p-1 rounded-full bg-white border border-yellow-200 shadow-md md:p-2">
                                 <select class="hidden p-3 rounded-full bg-transparent md:block md:p-4" name="domain" id="domain">
@@ -83,15 +83,16 @@
                                 </button>
                             </div>
                         </form>
-                        <p class="mt-8 text-gray-700 lg:w-10/12">Sit amet consectetur adipisicing elit. <a href="#" class="text-yellow-700">connection</a> tenetur nihil quaerat suscipit, sunt dignissimos.</p>
+                        <p class="mt-8 text-gray-700 lg:w-10/12">Checkout our  social media. <a href="#" class="text-sky-700">here</a> don't think to much to send us a message.</p>
                     </div>
                     <div class="ml-auto -mb-24 lg:-mb-56 lg:w-6/12">
-                        <img src="https://tailus.io/sources/blocks/food-delivery/preview/images/food.webp" class="relative" alt="food illustration" loading="lazy" width="4500" height="4500">
+                        <img src="https://www.shutterstock.com/image-photo/traditional-tajine-dishes-couscous-fresh-600nw-1222292680.jpg" class="relative" alt="food illustration" loading="lazy" width="4500" height="4500">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <section>
     <!-- <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"> -->
     <div class="flex flex-wrap justify-around items-center mt-12">
         @foreach ($recipes as $recipe )
@@ -125,5 +126,6 @@
             </div>
         @endforeach
     </div>
+    </section>
     </body>
 </html>
