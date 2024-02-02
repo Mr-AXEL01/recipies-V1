@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[RecipeController::class,'index']);
 Route::get('/create',[RecipeController::class,'create']);
 Route::post('/create    ',[RecipeController::class,'store']);
+Route::get('/search', [RecipeController::class, 'search'])->name('search');
 
 Route::delete('/delete/{recipe:title}', [RecipeController::class, 'destroy']);
 Route::post('/edit/{recipe:title}', [RecipeController::class, 'edit']);

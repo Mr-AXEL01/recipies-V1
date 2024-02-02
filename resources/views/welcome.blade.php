@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-...." crossorigin="anonymous" />
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         <script src="https://cdn.tailwindcss.com"></script>
 
@@ -60,20 +61,15 @@
                 </div>
             </div>
         </nav>
-        <div class="relative bg-yellow-50">
+        <div class="relative bg-yellow-50 mt-16">
             <div class="container m-auto px-6 pt-32 md:px-12 lg:pt-[4.8rem] lg:px-7">
                 <div class="flex items-center flex-wrap px-2 md:px-0">
                     <div class="relative lg:w-6/12 lg:py-24 xl:py-32">
                         <h1 class="font-bold text-4xl text-yellow-900 md:text-5xl lg:w-10/12">All Your favorite dishes, right at your door , just By a recipe </h1>
-                        <form action="" class="w-full mt-12">
+                        <form action="/search" method="GET">
                             <div class="relative flex p-1 rounded-full bg-white border border-yellow-200 shadow-md md:p-2">
-                                <select class="hidden p-3 rounded-full bg-transparent md:block md:p-4" name="domain" id="domain">
-                                    <option value="design">FastFood</option>
-                                    <option value="development">Restaurant</option>
-                                    <option value="marketing">Marketing</option>
-                                </select>
-                                <input placeholder="Your favorite food" class="w-full p-4 rounded-full" type="text">
-                                <button type="button" title="Start buying" class="ml-auto py-3 px-6 rounded-full text-center transition bg-gradient-to-b from-yellow-200 to-yellow-300 hover:to-red-300 active:from-yellow-400 focus:from-red-400 md:px-12">
+                                <input name="search" placeholder="Your favorite food" class="w-full p-4 rounded-full" type="search">
+                                <button type="submit" title="Start buying" class="ml-auto py-3 px-6 rounded-full text-center transition bg-gradient-to-b from-yellow-200 to-yellow-300 hover:to-red-300 active:from-yellow-400 focus:from-red-400 md:px-12">
                                     <span class="hidden text-yellow-900 font-semibold md:block">
                                         Search
                                     </span>
@@ -92,40 +88,41 @@
             </div>
         </div>
     </div>
-    <section>
-    <!-- <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5"> -->
-    <div class="flex flex-wrap justify-around items-center mt-12">
-        @foreach ($recipes as $recipe )
 
-            <div class="rounded overflow-hidden shadow-lg text-black w-[300px]">
-                <img class="w-full" src="/storage/{{ $recipe->picture }}" alt="Mountain">
-                <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">{{ $recipe->title }}</div>
-                    <p class=" text-base text-black">
-                        {{ $recipe->ingredients }}
-                    </p>
-                </div>
-                <div class="actions flex gap-4">
-                    <form action="/delete/{{ $recipe->title }}" method="post">
-                        @csrf
-                        @method("delete")
-                        <input type="hidden" name="title" value="{{ $recipe->title }}">
-                        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">
-                            Delete
-                        </button>
-                    </form>
+    <section class="container mx-auto mt-52">
+        <h2 class="text-3xl font-semibold mb-8">List of Recipes:</h2> <!-- Added styling to h2 -->
 
-                    <form action="/edit/{{ $recipe->title }}" method="post">
-                        @csrf
-                        <input type="hidden" name="title" value="{{ $recipe->title }}">
-                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-green-700 rounded">
-                            Edit
-                        </button>
-                    </form>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            @foreach ($recipes as $recipe)
+                <div class="rounded-lg overflow-hidden shadow-md bg-white hover:shadow-xl transition duration-300 ease-in-out mb-8">
+                    <img class="w-full h-48 object-cover" src="/storage/{{ $recipe->picture }}" alt="{{ $recipe->title }}">
+                    <div class="p-6">
+                        <div class="font-bold text-xl mb-2">{{ $recipe->title }}</div>
+                        <p class="text-sm text-gray-600">{{ $recipe->ingredients }}</p>
+                    </div>
+                    <div class="flex justify-end p-4 bg-gray-100">
+                        <form action="/delete/{{ $recipe->title }}" method="post">
+                            @csrf
+                            @method("delete")
+                            <input type="hidden" name="title" value="{{ $recipe->title }}">
+                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </form>
+
+                        <form action="/edit/{{ $recipe->title }}" method="post">
+                            @csrf
+                            <input type="hidden" name="title" value="{{ $recipe->title }}">
+                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full ml-2 transition duration-300 ease-in-out">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        @endforeach
-    </div>
+            @endforeach
+        </div>
     </section>
+
+
     </body>
 </html>

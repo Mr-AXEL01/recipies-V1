@@ -80,13 +80,21 @@ class RecipeController extends Controller
      * functionality of seraching
      */
 
+//    public function search(Request $request)
+//    {
+//        $search = $request->input('search');
+//        $results = Recipe::where('name', 'like', "%$search%")->get();
+//
+//        return view('welcome', ['results' => $results]);
+//    }
+
     public function search(Request $request)
     {
-        $search = $request->input('search');
-        $results = Recipe::where('name', 'like', "%$search%")->get();
+        $query = $request->input('search');
 
-        return view('welcome', ['results' => $results]);
+        $recipes = Recipe::where('Title', 'like', '%' . $query . '%')->get();
+
+        return view('search', ['recipes' => $recipes, 'search' => $query]);
     }
-
 
 }
